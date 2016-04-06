@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="ICM Custom Print Page Build" default="all" basedir=".">
+
+<target name="clean">
+	<delete>
+		<fileset dir=".">
+			<include name="*.war" />
+			<include name="*.ear" />
+		</fileset>
+	</delete>	
+</target>
+
+<target name="createWAR">
+    <war destfile="./GitTest.war" webxml="./WebContent/WEB-INF/web.xml">
+        <fileset dir="./WebContent">
+        	<include name="**/*.*" />
+        </fileset>
+    </war>
+</target>
+
+<target name="createEAR">
+	<ear destfile="./GitTest.ear" appxml="./WebContent/META-INF/application.xml">
+	      <fileset dir="." includes="*.war"/>
+	</ear>
+</target>
+
+	<target name="cleanWAR">
+		<delete>
+			<fileset dir=".">
+				<include name="*.war" />
+				
+			</fileset>
+		</delete>	
+	</target>
+
+<target name="all" depends="clean,createWAR,createEAR,cleanWAR"></target>
+</project>
