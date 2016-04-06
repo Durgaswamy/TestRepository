@@ -12,7 +12,7 @@
 
 <target name="createWAR">
     <war destfile="./GitTest.war" webxml="./GitTest/WebContent/WEB-INF/web.xml">
-        <fileset dir="./WebContent">
+        <fileset dir="./GitTest/WebContent">
         	<include name="**/*.*" />
         </fileset>
     </war>
